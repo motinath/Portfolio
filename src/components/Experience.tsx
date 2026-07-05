@@ -22,7 +22,7 @@ const NTILogo = () => (
 const GGNLogo = () => (
   <svg viewBox="0 0 100 100" className="w-6 h-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
     {/* Left G Ring */}
-    <path 
+    <path
       d="M 38 28 
          C 20 28, 12 40, 12 55 
          C 12 70, 20 82, 38 82 
@@ -32,11 +32,11 @@ const GGNLogo = () => (
          L 60 52 
          C 60 53, 60 83, 38 83 
          C 18 83, 2 69, 2 55 
-         C 2 41, 18 27, 38 27 Z" 
-      fill="#10B981" 
+         C 2 41, 18 27, 38 27 Z"
+      fill="#10B981"
     />
     {/* Right G Ring */}
-    <path 
+    <path
       d="M 62 28 
          C 44 28, 36 40, 36 55 
          C 36 70, 44 82, 62 82 
@@ -46,8 +46,8 @@ const GGNLogo = () => (
          L 84 52 
          C 84 53, 84 83, 62 83 
          C 42 83, 26 69, 26 55 
-         C 26 41, 42 27, 62 27 Z" 
-      fill="#10B981" 
+         C 26 41, 42 27, 62 27 Z"
+      fill="#10B981"
     />
     {/* NATION text below */}
     <text x="50" y="98" textAnchor="middle" fontSize="13" fontWeight="900" fontFamily="sans-serif" fill="#10B981" letterSpacing="0.5">NATION</text>
