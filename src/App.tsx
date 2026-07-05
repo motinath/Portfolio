@@ -31,7 +31,7 @@ export function App() {
     <Router>
       <ScrollToTopAndHash />
       <div 
-        className="w-full h-screen bg-[var(--vscode-editor-bg)] text-[var(--vscode-text)] font-mono selection:bg-[#264F78]/50 select-none overflow-hidden"
+        className="w-full h-screen h-[100dvh] bg-[var(--vscode-editor-bg)] text-[var(--vscode-text)] font-mono selection:bg-[#264F78]/50 select-none overflow-hidden"
       >
         <main className="w-full h-full">
           <Routes>

@@ -100,3 +100,12 @@ html, body, #root {
 .bullet-pulse-node {
   animation: bullet-pulse 2s ease-in-out infinite;
 }
+
+/* Hide scrollbars across browsers while keeping functional scrolling */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

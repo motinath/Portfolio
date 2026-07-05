@@ -27,7 +27,7 @@ export function Welcome() {
         </div>
 
         {/* 2. Start & Connect Grid */}
-        <div className="grid grid-cols-2 gap-x-12 sm:gap-x-24 gap-y-10 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 sm:gap-x-24 gap-y-10 w-full">
           
           {/* Start Column */}
           <div>

@@ -379,7 +379,7 @@ export function VSCodeLayout() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-screen bg-[var(--vscode-editor-bg)] text-[var(--vscode-text)] font-mono overflow-hidden select-none">
+    <div className="flex flex-col h-screen h-[100dvh] w-screen bg-[var(--vscode-editor-bg)] text-[var(--vscode-text)] font-mono overflow-hidden select-none">
       
       {/* 1. TOP TITLE BAR */}
       <div className="flex items-center justify-between h-[35px] bg-[var(--vscode-titlebar-bg)] text-[var(--vscode-titlebar-fg)] text-xs px-3 border-b border-[var(--vscode-border)] select-none flex-shrink-0 z-40">
@@ -419,6 +419,14 @@ export function VSCodeLayout() {
 
       {/* 2. MAIN MIDDLE INTERFACE CONTAINER */}
       <div className="flex flex-row flex-grow w-full overflow-hidden relative">
+        
+        {/* Backdrop for mobile */}
+        {isSidebarOpen && (
+          <div 
+            className="sm:hidden absolute inset-0 left-[50px] bg-black/50 backdrop-blur-xs z-25 cursor-pointer"
+            onClick={() => setIsSidebarOpen(false)}
+          />
+        )}
         
         {/* A. LEFT ACTIVITY BAR */}
         <div className="flex flex-col justify-between w-[50px] bg-[var(--vscode-activity-bg)] border-r border-[var(--vscode-border)] flex-shrink-0 z-35 py-2">
@@ -483,7 +491,7 @@ export function VSCodeLayout() {
             opacity: isSidebarOpen ? 1 : 0
           }}
           transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-          className="hidden sm:flex flex-col bg-[var(--vscode-sidebar-bg)] border-r border-[var(--vscode-border)] flex-shrink-0 z-30 select-none overflow-hidden h-full"
+          className="flex flex-col bg-[var(--vscode-sidebar-bg)] border-r border-[var(--vscode-border)] flex-shrink-0 z-30 select-none overflow-hidden h-full absolute sm:relative left-[50px] sm:left-0 top-0 bottom-0 shadow-2xl sm:shadow-none"
         >
           <div className="w-[230px] h-full flex flex-col">
             <div className="p-3 text-[11px] uppercase tracking-wider font-semibold text-[var(--vscode-text-muted)] border-b border-[var(--vscode-border)] flex justify-between items-center font-sans">
@@ -528,6 +536,9 @@ export function VSCodeLayout() {
                               if (prev.includes(file.path)) return prev;
                               return [...prev, file.path];
                             });
+                            if (window.innerWidth < 640) {
+                              setIsSidebarOpen(false);
+                            }
                           }}
                           className={cn(
                             "relative flex items-center gap-2 px-8 py-1.5 text-xs text-[var(--vscode-text-muted)] hover:text-[var(--vscode-text)] hover:bg-[#2c2d38]/50 select-none no-underline transition-colors duration-150",
@@ -568,6 +579,9 @@ export function VSCodeLayout() {
                             if (prev.includes(file.path)) return prev;
                             return [...prev, file.path];
                           });
+                          if (window.innerWidth < 640) {
+                            setIsSidebarOpen(false);
+                          }
                         }}
                         className={cn(
                           "relative flex items-center justify-between gap-2 px-8 py-1.5 text-xs text-[var(--vscode-text-muted)]/60 hover:text-[var(--vscode-text)] hover:bg-[#2c2d38]/50 select-none no-underline transition-colors duration-150",
@@ -683,7 +697,8 @@ export function VSCodeLayout() {
                 
                 {/* Active Terminal Input Row */}
                 <form onSubmit={handleTerminalCommand} className="flex items-center gap-1 text-[var(--vscode-text)]">
-                  <span>C:\Users\motinath_\portfolio&gt;</span>
+                  <span className="hidden sm:inline">C:\Users\motinath_\portfolio&gt;</span>
+                  <span className="sm:hidden">portfolio&gt;</span>
                   <input
                     type="text"
                     value={terminalInput}
