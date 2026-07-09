@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 import { cn } from '../lib/utils';
 
 // 1. FADE IN UTILITY
@@ -22,7 +22,7 @@ export function FadeIn({
   className = '',
   as = 'div',
 }: FadeInProps) {
-  const Component = (motion as any)[as] || motion.div;
+  const Component = (motion as unknown as Record<string, React.ElementType>)[as] || motion.div;
 
   return (
     <Component
@@ -123,7 +123,7 @@ export function Magnet({
 // 3. CHARACTER-BY-CHARACTER SCROLL REVEAL UTILITY
 interface AnimatedCharProps {
   char: string;
-  progress: any; // MotionValue<number>
+  progress: MotionValue<number>;
   start: number;
   end: number;
 }

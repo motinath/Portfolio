@@ -89,7 +89,7 @@ export function Movies() {
                     year: 'numeric'
                   });
                 }
-              } catch (e) {
+              } catch {
                 watchDate = '';
               }
             }
