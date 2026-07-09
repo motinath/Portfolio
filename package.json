@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "install": "npm install"
+    "install": "npm install --no-scripts"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
